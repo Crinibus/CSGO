@@ -11,9 +11,12 @@ import platform
 
 # TODO: Se Google Keep for noter til dette program
 
+# TODO: Have info about the weapons, such as damage and ammo
 
 
-ALL_MAPS = ['Dust II', 'Inferno', 'Train', 'Mirage', 'Nuke', 'Overpass', 'Vertigo', 'Cache', 'Cobblestone', 'Canals', 'Zoo', 'Abbey', 'Biome', 'Militia', 'Agency', 'Office', 'Italy', 'Assault']
+
+ALL_MAPS = ['Dust II', 'Inferno', 'Train', 'Mirage', 'Nuke', 'Overpass', 'Vertigo', 'Cache', 'Cobblestone', 
+    'Canals', 'Zoo', 'Abbey', 'Biome', 'Militia', 'Agency', 'Office', 'Italy', 'Assault']
 
 WEAPONS_SMGS = ['MP9', 'MAC-10', 'PP-Bizon', 'MP7', 'UMP-45', 'P90', 'MP5-SD']
 WEPONS_RIFLES = []
@@ -75,6 +78,7 @@ class Player:
         self.team = team
     
     def rnd_team(self):
+        # TODO: Check if a team is full
         self.team = random.choice(TEAMS)
     
     def print_team(self):
