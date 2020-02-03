@@ -23,7 +23,7 @@ WEAPONS_PISTOLS = ['P2000', 'USP-S', 'Glock-18', 'P250', 'Five-SeveN', 'Tec-9', 
 WEAPONS_ALL = WEAPONS_PRIMARY + WEAPONS_PISTOLS
 
 WEAPONS_GRENADES = ['HE Grenade', 'Flashbang', 'Smoke Grenade', 'Decoy Grenade', 'Molotov', 'Incendiary Grenade']
-GEAR = ['Kevlar Vest', 'Kevlar + Helmet', 'Zeus x27', 'Defuse Kit']
+GEAR = ['Kevlar Vest', 'Kevlar + Helmet', 'Zeus x27', 'Defuse Kit', 'None']
 
 
 def rnd_all_map():
@@ -49,10 +49,19 @@ def rnd_grenade():
 def rnd_gear():
     return random.choice(GEAR)
 
+
+def rnd_full_set():
+    rnd_map = rnd_all_map()
+    weapon_pri = rnd_primary_weapon()
+    weapon_sec = rnd_secondary_weapon()
+    grenade = rnd_grenade()
+    gear = rnd_gear()
+
 # TODO: maybe use this class to make random teams
 class Player:
     def __init__(self, name):
         self.name = name
+
 
 def main():
     while True:
