@@ -29,30 +29,37 @@ TEAMS = ['Counter Terrorist', 'Terrorist']
 
 
 def rnd_all_map():
+    """Returns a random map"""
     return random.choice(ALL_MAPS)
 
 
 def rnd_all_weapon():
+    """Returns a random weapon from all weapons"""
     return random.choice(WEAPONS_ALL)
 
 
 def rnd_primary_weapon():
+    """Returns a random primary weapon"""
     return random.choice(WEAPONS_PRIMARY)
 
 
 def rnd_secondary_weapon():
+    """Returns a random secondary weapon"""
     return random.choice(WEAPONS_PISTOLS)
 
 
 def rnd_grenade():
+    """Returns a random grenade"""
     return random.choice(WEAPONS_GRENADES)
 
 
 def rnd_gear():
+    """Returns a random gear"""
     return random.choice(GEAR)
 
 
 def rnd_full_set():
+    """Returns a random map, a random primary and secondary weapon, a random grenade and random gear"""
     rnd_map = rnd_all_map()
     weapon_pri = rnd_primary_weapon()
     weapon_sec = rnd_secondary_weapon()
@@ -63,11 +70,18 @@ def rnd_full_set():
 
 # TODO: maybe use this class to make random teams
 class Player:
-    def __init__(self, name):
+    def __init__(self, name, team=''):
         self.name = name
+        self.team = team
     
     def rnd_team(self):
         self.team = random.choice(TEAMS)
+    
+    def print_team(self):
+        if not self.team == '':
+            print(f'{self.name} is on team {self.team}')
+        else:
+            print(f'{self.name} is not on a team')
 
 
 def main():
