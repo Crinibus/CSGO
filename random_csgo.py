@@ -13,6 +13,8 @@ import platform
 
 # TODO: Have info about the weapons, such as damage and ammo
 
+# TODO: Have an option to save the score of a game, and keep track of who won more games and stuff like that
+
 
 
 ALL_MAPS = ['Dust II', 'Inferno', 'Train', 'Mirage', 'Nuke', 'Overpass', 'Vertigo', 'Cache', 'Cobblestone', 
