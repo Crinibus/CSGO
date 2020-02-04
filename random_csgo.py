@@ -33,6 +33,16 @@ GEAR = ['Kevlar Vest', 'Kevlar + Helmet', 'Zeus x27', 'Defuse Kit', 'None']
 TEAMS = ['Counter Terrorist', 'Terrorist']
 
 
+def load_json_teams():
+    if os.path.isfile('./teams.json'):
+        with open('teams.json', encoding='utf-8') as f:
+                teams_json = f.read()
+        teams = json.loads(teams_json)
+    else:
+        teams_json = {}
+    return teams
+
+
 def rnd_all_map():
     """Returns a random map"""
     return random.choice(ALL_MAPS)
