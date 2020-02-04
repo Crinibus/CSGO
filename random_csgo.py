@@ -39,7 +39,9 @@ def load_json_teams():
                 teams_json = f.read()
         teams = json.loads(teams_json)
     else:
-        teams_json = {}
+        teams_json = {"CT": [], "T": []}
+        with open('teams.json', 'w') as teams_json_file:
+            json.dump(teams_json, teams_json_file)
     return teams
 
 
@@ -113,6 +115,7 @@ def main():
 
 if __name__ == '__main__':
     try:
+        load_json_teams()
         main()
     except KeyboardInterrupt:
         print('\n\nProgram closed by the user\n')
