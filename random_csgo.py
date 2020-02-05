@@ -100,8 +100,13 @@ class Player:
         self.team = team
     
     def rnd_team(self):
-        # TODO: Check if a team is full
         self.team = random.choice(TEAMS)
+        # TODO: Check if a team is full
+        if teams_in_file[self.team] > 5:
+            self.rnd_team()
+        else:
+            if not self.name in teams_in_file[self.team]:
+                teams_in_file[self.team].append(self.name)
     
     def print_team(self):
         if not self.team == '':
@@ -123,7 +128,7 @@ def main():
 
 if __name__ == '__main__':
     try:
-        load_json_teams()
+        teams_in_file = load_json_teams()
         main()
     except KeyboardInterrupt:
         print('\n\nProgram closed by the user\n')
