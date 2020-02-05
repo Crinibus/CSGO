@@ -40,6 +40,7 @@ def load_json_teams():
         teams_json = {"CT": [], "T": []}
         with open('teams.json', 'w') as teams_json_file:
             json.dump(teams_json, teams_json_file)
+            teams = json.loads(teams_json)
     return teams
 
 
