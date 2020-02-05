@@ -8,15 +8,6 @@ import os
 import platform
 
 
-
-# TODO: Se Google Keep for noter til dette program
-
-# TODO: Have info about the weapons, such as damage and ammo
-
-# TODO: Have an option to save the score of a game, and keep track of who won more games and stuff like that
-
-
-
 ALL_MAPS = ['Dust II', 'Inferno', 'Train', 'Mirage', 'Nuke', 'Overpass', 'Vertigo', 'Cache', 'Cobblestone', 
     'Canals', 'Zoo', 'Abbey', 'Biome', 'Militia', 'Agency', 'Office', 'Italy', 'Assault']
 
