@@ -15,6 +15,7 @@ import platform
 # TODO: Have an option to save the score of a game, and keep track of who won more games and stuff like that
 
 
+
 ALL_MAPS = ['Dust II', 'Inferno', 'Train', 'Mirage', 'Nuke', 'Overpass', 'Vertigo', 'Cache', 'Cobblestone', 
     'Canals', 'Zoo', 'Abbey', 'Biome', 'Militia', 'Agency', 'Office', 'Italy', 'Assault']
 
@@ -84,7 +85,15 @@ def rnd_full_set():
     return rnd_map, weapon_pri, weapon_sec, grenade, gear
 
 
-# TODO: maybe use this class to make random teams
+def create_player():
+    name = input('Enter a name for the player: ')
+    team = input('Enter a teamname for the player (leave blank if none): ')
+
+    # TODO: check if the name of a player is the same name of a existing player
+    Player(name, team)
+
+
+# TODO: maybe use this class to make random teams for each player
 class Player:
     def __init__(self, name, team=''):
         self.name = name
