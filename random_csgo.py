@@ -16,7 +16,7 @@ import platform
 
 
 
-ALL_MAPS = ['Dust II', 'Inferno', 'Train', 'Mirage', 'Nuke', 'Overpass', 'Vertigo', 'Cache', 'Cobblestone', 
+ALL_MAPS = ['Dust II', 'Inferno', 'Train', 'Mirage', 'Nuke', 'Overpass', 'Vertigo', 'Cache', 'Cobblestone',
     'Canals', 'Zoo', 'Abbey', 'Biome', 'Militia', 'Agency', 'Office', 'Italy', 'Assault']
 
 WEAPONS_SMGS = ['MP9', 'MAC-10', 'PP-Bizon', 'MP7', 'UMP-45', 'P90', 'MP5-SD']
@@ -86,11 +86,39 @@ def rnd_full_set():
 
 
 def create_player():
-    name = input('Enter a name for the player: ')
-    team = input('Enter a teamname for the player (leave blank if none): ')
+    #name = input('Enter a name for the player: ')
+    #team = input('Enter a teamname for the player (leave blank if none): ')
 
+    names = []
+
+    while True:
+        name = input('Enter a name for the player: ')
+        if not name == '':
+            if not name in names:
+                names.append(name)
+            else:
+                print(f'{name} is already taken')
+        else:
+            break
+
+    create_teams(names)
     # TODO: check if the name of a player is the same name of a existing player
-    Player(name, team)
+    #Player(name, team)
+
+
+def create_teams(name_list):
+    number_people = len(name_list)
+    number_of_teams = 2
+    teams = []
+
+    while number_people > 0 and number_of_teams > 0:
+        team = random.sample(name_list, int(number_people/number_of_teams))
+        for x in team:
+            name_list.remove(x)
+        number_people -= int(number_people/number_of_teams)
+        number_of_teams -= 1
+        teams.append(team)
+    print(teams)
 
 
 # TODO: maybe use this class to make random teams for each player
@@ -98,7 +126,7 @@ class Player:
     def __init__(self, name, team=''):
         self.name = name
         self.team = team
-    
+
     def rnd_team(self):
         self.team = random.choice(TEAMS)
         # TODO: Check if a team is full
@@ -107,7 +135,7 @@ class Player:
         else:
             if not self.name in teams_in_file[self.team]:
                 teams_in_file[self.team].append(self.name)
-    
+
     def print_team(self):
         if not self.team == '':
             print(f'{self.name} is on team {self.team}')
@@ -122,6 +150,8 @@ def main():
             print(f'{rnd_all_map()}\n')
         elif start_input == 'weapons':
             print(f'{rnd_all_weapon()}\n')
+        elif start_input == 'teams':
+            create_player()
         else:
             print('Try again\n')
 
