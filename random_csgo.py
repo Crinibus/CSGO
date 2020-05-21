@@ -106,15 +106,16 @@ def create_player():
     #Player(name, team)
 
 
-def create_teams(name_list):
+def create_teams(name_list, num_teams=2):
     number_people = len(name_list)
-    number_of_teams = 2
+    number_of_teams = num_teams
     teams = []
 
     while number_people > 0 and number_of_teams > 0:
         team = random.sample(name_list, int(number_people/number_of_teams))
-        for x in team:
-            name_list.remove(x)
+        for name in team:
+            print(name)
+            name_list.remove(name)
         number_people -= int(number_people/number_of_teams)
         number_of_teams -= 1
         teams.append(team)
