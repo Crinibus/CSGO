@@ -146,7 +146,7 @@ class Player:
 
 def main():
     while True:
-        start_input = input('Choose what to pick (map, weapons): ').lower()
+        start_input = input('Choose what to pick (map, weapons, teams): ').lower()
         if start_input == 'map':
             print(f'{rnd_all_map()}\n')
         elif start_input == 'weapons':
